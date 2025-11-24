@@ -37,6 +37,9 @@ output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers().flatt
 print("[INFO] Iniciando webcam... Muestra un objeto a la cámara!")
 vs = cv2.VideoCapture(0)
 
+vs.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
 # --- BUCLE PRINCIPAL ---
 while True:
     ret, frame = vs.read()
@@ -46,7 +49,7 @@ while True:
     (h, w) = frame.shape[:2]
 
     # Pre-procesamos la imagen para YOLO
-    blob = cv2.dnn.blobFromImage(frame, 1/255.0, (416, 416), swapRB=True, crop=False)
+    blob = cv2.dnn.blobFromImage(frame, 1/255.0, (320, 320), swapRB=True, crop=False)
 
     # Pasamos la imagen a la red neuronal
     net.setInput(blob)
