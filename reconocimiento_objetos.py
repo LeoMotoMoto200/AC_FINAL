@@ -13,10 +13,10 @@ nms_threshold = 0.4
 # tal como aparecen en el archivo 'coco.names'.
 # Usamos un "set" porque es más rápido para verificar si un elemento existe.
 objetos_permitidos = {
-    "person", "bicycle", "car", "dog", "cat",
-    "bottle", "cup", "fork", "knife", "spoon",
-    "chair", "sofa", "tvmonitor", "laptop", "mouse",
-    "keyboard", "cell phone", "book", "clock", "scissors"
+    "person", "dog", "cat",
+    "bottle", "cup", "spoon",
+    "laptop", "mouse",
+    "keyboard", "cell phone", "book", "scissors"
 }
 print(f"[INFO] Se buscarán {len(objetos_permitidos)} tipos de objetos.")
 
@@ -46,7 +46,7 @@ while True:
     (h, w) = frame.shape[:2]
 
     # Pre-procesamos la imagen para YOLO
-    blob = cv2.dnn.blobFromImage(frame, 1/255.0, (416, 416), swapRB=True, crop=False)
+    blob = cv2.dnn.blobFromImage(frame, 1/255.0, (320, 320), swapRB=True, crop=False)
 
     # Pasamos la imagen a la red neuronal
     net.setInput(blob)
