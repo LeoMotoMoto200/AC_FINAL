@@ -13,10 +13,10 @@ nms_threshold = 0.4
 # tal como aparecen en el archivo 'coco.names'.
 # Usamos un "set" porque es más rápido para verificar si un elemento existe.
 objetos_permitidos = {
-    "person", "bicycle", "car", "dog", "cat",
-    "bottle", "cup", "fork", "knife", "spoon",
-    "chair", "sofa", "tvmonitor", "laptop", "mouse",
-    "keyboard", "cell phone", "book", "clock", "scissors"
+    "person", "dog", "cat",
+    "bottle", "cup", "spoon",
+    "laptop", "mouse",
+    "keyboard", "cell phone", "book", "scissors"
 }
 print(f"[INFO] Se buscarán {len(objetos_permitidos)} tipos de objetos.")
 
